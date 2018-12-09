@@ -103,12 +103,13 @@ internal class X() {
 
     @CommandHandler
     constructor(cmd: CreateXCmd) : this() {
+        logger.debug { "processing $cmd" }
         apply(XCreatedEvt(cmd.id))
     }
 
     @EventSourcingHandler
     fun on(evt: XCreatedEvt) {
-        logger.debug { "processing: ${evt}" }
+        logger.debug { "applying $evt" }
         id = evt.id
     }
 

@@ -1,4 +1,4 @@
-# Postgres basics
+# Postgres cheatsheet
 
 ### Running the docker image
 
@@ -60,3 +60,22 @@ In `/etc/postgresql/9.6/main/postgresql.conf`:
 * Quit: '\q'
 * List all tables, views: `\d` (to include system tables, add `S`)
 * Describe single table: `\d tablename`
+
+### Java/JDBC/JPA/Spring Boot
+
+```
+spring.datasource.url=jdbc:postgresql://localhost/test
+spring.datasource.username=dbuser
+spring.datasource.password=dbpass
+spring.datasource.driver-class-name=org.postgresql.Driver
+```
+
+(When custom-configuring the datasource bean, `jdbcUrl` instead of `url` for the Hikari
+connection pool.)
+
+```
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+</dependency>
+```
